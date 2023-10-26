@@ -133,4 +133,4 @@ dist
 .env
 .env.local
 
-.sqlite
+*.sqlite

@@ -58,6 +58,7 @@ const authentication = async (req, res, next) => {
 // End of Assumption
 
 // Main file start here
+const cors = require("cors");
 const express = require("express");
 const { Credential } = require("./models");
 
@@ -65,6 +66,7 @@ const port = process.env.PORT || 3000;
 const app = express();
 
 // middleware
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
