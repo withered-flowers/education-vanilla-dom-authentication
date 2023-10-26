@@ -39,27 +39,7 @@ const goToRegister = (e) => {
 
 const fetchTodosAndRenderTable = async () => {
   try {
-    const { data } = await axios.get(
-      "http://jsonplaceholder.typicode.com/todos"
-    );
-
-    // Only get First 10 data
-    const todos = data.slice(0, 10);
-
-    // Render todos to DOM (table - privateTableBody)
-    const privateTableBody = document.querySelector("#privateTableBody");
-
-    const innerTable = todos.map((todo) => {
-      return `
-        <tr>
-          <td>${todo.id}</td>
-          <td>${todo.title}</td>
-          <td>${todo.completed}</td>
-        </tr>
-      `;
-    });
-
-    privateTableBody.innerHTML = innerTable.join("");
+    // TODO: fetch todos ("/private") from server
   } catch (err) {
     console.log(err);
   }
