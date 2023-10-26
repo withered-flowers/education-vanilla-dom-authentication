@@ -1,0 +1,27 @@
+@BASE_URL=http://localhost:3000
+@TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjk4MjI5NzE3fQ.SEHr2mrccPauzQ8qdGbktd8KoYw7B9_TrlIJwtDv4wU
+
+###
+
+GET {{BASE_URL}} HTTP/1.1
+
+###
+
+POST {{BASE_URL}}/register HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+email=foobar@bar.com&password=bar
+
+###
+
+POST {{BASE_URL}}/login HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+email=foobar@bar.com&password=bar
+
+###
+
+GET {{BASE_URL}}/private HTTP/1.1
+Authorization: Bearer {{TOKEN}}
+
+###
