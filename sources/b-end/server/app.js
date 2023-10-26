@@ -163,10 +163,10 @@ app.use((err, req, res, next) => {
   } else if (err.name === "JsonWebTokenError") {
     statusCode = 401;
     message = "You are not authenticated";
-  } else if (err.name === "INVALID_EMAIL_OR_PASSWORD") {
+  } else if (err.message === "INVALID_EMAIL_OR_PASSWORD") {
     statusCode = 400;
     message = "Invalid email or password";
-  } else if (err.name === "NOT_AUTHENTICATED") {
+  } else if (err.message === "NOT_AUTHENTICATED") {
     statusCode = 401;
     message = "You are not authenticated";
   }

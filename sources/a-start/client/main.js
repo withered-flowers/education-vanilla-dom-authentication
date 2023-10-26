@@ -36,7 +36,7 @@ const goToRegister = (e) => {
   document.querySelector("#privateRoute").classList.add("hidden");
 };
 
-const fetchTodosAndRenderTable = async () => {
+const renderHomePage = async () => {
   try {
     // TODO: fetch todos ("/private") from server
   } catch (err) {
@@ -64,6 +64,9 @@ const initialize = () => {
 
   // Add event click (fn goToRegister) to #toRegister
   document.querySelector("#toRegister").addEventListener("click", goToRegister);
+
+  // Add event click (fn doLogout) to #doLogout
+  document.querySelector("#doLogout").addEventListener("click", doLogout);
 };
 // End of Function Declaration
 
