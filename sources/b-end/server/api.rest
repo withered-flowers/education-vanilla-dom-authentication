@@ -1,5 +1,5 @@
 @BASE_URL=http://localhost:3000
-@TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk4MjkxMDU4fQ.Fs6kRckYNGOEtd9yunmPIUdSXbb1GU_e5C55uc8rIJg
+@TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk4MzI3OTcyfQ.-BqxjcclYgN85W36qip6XmzujgjKAR6mDlO2ButPhmY
 
 ###
 
@@ -10,7 +10,7 @@ GET {{BASE_URL}} HTTP/1.1
 POST {{BASE_URL}}/register HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
 
-email=foobar@bar.com&password=bar
+username=foobar&email=foobar@bar.com&password=bar
 
 ###
 

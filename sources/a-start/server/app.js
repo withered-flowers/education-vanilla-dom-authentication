@@ -45,7 +45,7 @@ const authentication = async (req, res, next) => {
 
     req.user = {
       id: foundUser.id,
-      email: foundUser.email,
+      username: foundUser.username,
     };
 
     next();
@@ -60,7 +60,7 @@ const authentication = async (req, res, next) => {
 // Main file start here
 const cors = require("cors");
 const express = require("express");
-const { Credential } = require("./models");
+const { Credential, Todo } = require("./models");
 
 const port = process.env.PORT || 3000;
 const app = express();
@@ -80,10 +80,11 @@ app.get("/", (req, res) => {
 
 app.post("/register", async (req, res, next) => {
   try {
-    const { email, password } = req.body;
+    const { username, email, password } = req.body;
 
     const { password: newPassword, ...newUser } = (
       await Credential.create({
+        username,
         email,
         password,
       })
@@ -131,12 +132,21 @@ app.post("/login", async (req, res, next) => {
   }
 });
 
-app.get("/private", authentication, (req, res, next) => {
-  res.status(200).json({
-    statusCode: 200,
-    message: "Data from private route !",
-    data: req.user,
-  });
+app.get("/private", authentication, async (req, res, next) => {
+  try {
+    const todos = await Todo.findAll();
+
+    res.status(200).json({
+      statusCode: 200,
+      message: "Data from private route !",
+      data: {
+        todos,
+        user: req.user,
+      },
+    });
+  } catch (err) {
+    next(err);
+  }
 });
 
 // error handler
