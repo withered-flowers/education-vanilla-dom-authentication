@@ -1,28 +1,51 @@
+import axios from "axios";
 import "./style.css";
-import javascriptLogo from "./javascript.svg";
-import viteLogo from "/vite.svg";
-import { fetchTodos, setupCounter } from "./counter.js";
 
-document.querySelector("#app").innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`;
+const doAuthentication = (e) => {
+  e.preventDefault();
 
-setupCounter(document.querySelector("#counter"));
+  const username = document.querySelector("#formLoginEmail").value;
+  const password = document.querySelector("#formLoginPassword").value;
 
-fetchTodos().then((todos) => {
-  console.log(todos);
-});
+  console.log(username, password);
+};
+
+const fetchTodosAndRenderTable = async () => {
+  try {
+    const { data } = await axios.get(
+      "http://jsonplaceholder.typicode.com/todos"
+    );
+
+    // Only get First 10 data
+    const todos = data.slice(0, 10);
+
+    // Render todos to DOM (table - privateTableBody)
+    const privateTableBody = document.querySelector("#privateTableBody");
+
+    const innerTable = todos.map((todo) => {
+      return `
+        <tr>
+          <td>${todo.id}</td>
+          <td>${todo.title}</td>
+          <td>${todo.completed}</td>
+        </tr>
+      `;
+    });
+
+    privateTableBody.innerHTML = innerTable.join("");
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const initialize = () => {
+  // Hide #privateRoute
+  document.querySelector("#privateRoute").classList.toggle("hidden");
+
+  // Add event submit (fn doAuthentication) to #formLogin
+  document
+    .querySelector("#formLogin")
+    .addEventListener("submit", doAuthentication);
+};
+
+initialize();

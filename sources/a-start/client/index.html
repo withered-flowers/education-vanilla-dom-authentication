@@ -1,13 +1,78 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Belajar Authentication</title>
   </head>
   <body>
-    <div id="app"></div>
+    <!-- We will make the UI here, directly -->
+    <section
+      id="app"
+      class="min-w-100 min-h-[100dvh] flex flex-col gap-4 items-center justify-center bg-slate-100"
+    >
+      <!-- Form Login -->
+      <form
+        id="formLogin"
+        class="flex flex-col gap-4 border-2 p-4 border-emerald-300/50 rounded md:min-w-[25vw]"
+      >
+        <h1 class="text-2xl font-bold text-center">Login Form</h1>
+        <input
+          class="py-2 px-4 rounded"
+          type="email"
+          name="email"
+          id="formLoginEmail"
+          placeholder="Email"
+          required
+        />
+        <input
+          class="py-2 px-4 rounded"
+          type="password"
+          name="password"
+          id="formLoginPassword"
+          placeholder="Password"
+          required
+        />
+        <button
+          class="py-2 px-4 rounded bg-blue-200 hover:bg-blue-400 hover:text-white transition-colors duration-300"
+          type="submit"
+        >
+          Submit
+        </button>
+      </form>
+      <!-- End of Form Login -->
+
+      <!-- Private Route (Authenticated) -->
+      <section
+        id="privateRoute"
+        class="flex flex-col gap-4 border-2 p-4 border-sky-300/50 rounded md:min-w-[25vw]"
+      >
+        <h1 class="text-2xl font-bold text-center">Private Route</h1>
+        <nav>
+          <a
+            href="#"
+            class="underline underline-offset-4 text-blue-400 hover:text-blue-600 transition-colors duration-300"
+            id="doLogout"
+            >Logout</a
+          >
+        </nav>
+        <table>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Completed?</th>
+            </tr>
+          </thead>
+          <tbody id="privateTableBody"></tbody>
+        </table>
+      </section>
+      <!-- End of Private Route (Authenticated) -->
+    </section>
+    <!-- End of Direct Make UI -->
+
+    <!-- Included script (DO NOT MODIFY !) -->
     <script type="module" src="/main.js"></script>
   </body>
 </html>
