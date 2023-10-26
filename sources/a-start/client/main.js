@@ -1,6 +1,7 @@
 import axios from "axios";
 import "./style.css";
 
+// Function Declaration
 const doAuthentication = (e) => {
   e.preventDefault();
 
@@ -47,5 +48,7 @@ const initialize = () => {
     .querySelector("#formLogin")
     .addEventListener("submit", doAuthentication);
 };
+// End of Function Declaration
 
+// Runner
 initialize();
