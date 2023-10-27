@@ -1,5 +1,5 @@
 @BASE_URL=http://localhost:3000
-@TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk4MzI3OTcyfQ.-BqxjcclYgN85W36qip6XmzujgjKAR6mDlO2ButPhmY
+@TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk4Mzc5MTIyfQ.8sgUZl9b3xSlWxozj4W7eMTLTdX4oeGvRSIhB8tPst0
 
 ###
 

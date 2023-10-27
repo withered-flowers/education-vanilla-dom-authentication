@@ -193,3 +193,9 @@ const initialize = () => {
 
 // Runner
 initialize();
+
+// Check if token exist, navigate to homepage
+if (localStorage.getItem("token")) {
+  goToHomePage();
+}
+// End of Runner
